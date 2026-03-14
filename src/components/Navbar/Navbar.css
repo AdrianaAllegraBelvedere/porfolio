@@ -1,0 +1,130 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navbarContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1rem;
+}
+
+.navbarBrand {
+  font-family: var(--font-primary);
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--color-green);
+}
+
+.navbarToggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.navbarToggleHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbarToggle span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-green);
+  border-radius: 999px;
+}
+
+.navbarDesktop {
+  display: none;
+}
+
+.navbarOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 1000;
+}
+
+.navbarOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbarMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 72vw;
+  max-width: 320px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  z-index: 1100;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.navbarMenuOpen {
+  transform: translateX(0);
+}
+
+.navbarClose {
+  position: absolute;
+  top: 1.25rem;
+  right: 1rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-primary-pink);
+  z-index: 1200;
+}
+
+.navbarLink {
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-regular);
+  color: var(--color-primary-pink);
+}
+
+@media (min-width: 768px) {
+  .navbarContainer {
+    padding: 2rem 3rem;
+  }
+
+  .navbarToggle,
+  .navbarOverlay,
+  .navbarMenu {
+    display: none;
+  }
+
+  .navbarDesktop {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+
+  .navbarDesktopLink {
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-regular);
+    color: var(--color-green);
+    transition: color var(--transition-base);
+  }
+
+  .navbarDesktopLink:hover {
+    color: var(--color-primary-pink);
+  }
+}
